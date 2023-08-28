@@ -27,11 +27,11 @@ class ChatClientTest {
 
     @Test
     void "ultimate question"() {
-        var request = new ChatRequest(messages: [new Message(Role.USER, '''
+        var request = new ChatRequest('''
             What is the Ultimate Answer to
             the Ultimate Question of Life,
             the Universe, and Everything?
-        ''')])
+        ''')
         var response = client.ask(request)
         var answer = response.choices[0].message.content
         println answer
