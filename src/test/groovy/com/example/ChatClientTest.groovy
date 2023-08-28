@@ -25,4 +25,17 @@ class ChatClientTest {
         println response.choices[0].message.content
     }
 
+    @Test
+    void "ultimate question"() {
+        var request = new ChatRequest(messages: [new Message(Role.USER, '''
+            What is the Ultimate Answer to
+            the Ultimate Question of Life,
+            the Universe, and Everything?
+        ''')])
+        var response = client.ask(request)
+        var answer = response.choices[0].message.content
+        println answer
+        assert answer.contains('42')
+    }
+
 }
