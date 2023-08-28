@@ -3,9 +3,9 @@ package com.example
 import io.micronaut.http.annotation.*
 import io.micronaut.http.client.annotation.Client
 
-@Client('${chat.baseUrl}')
+@Client('https://api.openai.com/v1/')
 @Headers(
-    @Header(name = 'Authorization', value = '${chat.authorization}')
+    @Header(name = 'Authorization', value = 'Bearer ${OPENAI_API_KEY}')
 )
 interface ChatClient {
     @Get('/models')
